@@ -1,7 +1,9 @@
 package com.sakadream.nativeimage.services;
 
-import com.sakadream.nativeimage.models.User;
+import com.sakadream.nativeimage.dto.UserDto;
 
 public interface HelloService {
-    String hello(User user);
+
+    String hello(UserDto userDto);
+    
 }

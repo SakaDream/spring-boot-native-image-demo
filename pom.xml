@@ -48,12 +48,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.apache.tomcat</groupId>
-					<artifactId>tomcat-jdbc</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -63,9 +57,19 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.zaxxer</groupId>
-			<artifactId>HikariCP</artifactId>
-			<version>3.4.5</version>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.passay</groupId>
+			<artifactId>passay</artifactId>
+			<version>1.6.0</version>
 		</dependency>
 	</dependencies>
 
@@ -104,7 +108,11 @@
 						<version>20.2.0</version>
 						<configuration>
 							<mainClass>com.sakadream.nativeimage.Application</mainClass>
-							<buildArgs>-Dspring.native.remove-yaml-support=true -Dspring.spel.ignore=true</buildArgs>
+							<buildArgs>
+								-Dspring.native.remove-yaml-support=true 
+								-Dspring.spel.ignore=true --enable-all-security-services
+								-H:DynamicProxyConfigurationFiles=${project.basedir}\dynamic-proxy-config.json
+							</buildArgs>
 						</configuration>
 						<executions>
 							<execution>

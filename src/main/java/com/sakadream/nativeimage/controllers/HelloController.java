@@ -1,6 +1,6 @@
 package com.sakadream.nativeimage.controllers;
 
-import com.sakadream.nativeimage.models.User;
+import com.sakadream.nativeimage.dto.UserDto;
 import com.sakadream.nativeimage.services.HelloService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +18,8 @@ public class HelloController {
     private HelloService helloService;
     
     @PostMapping
-    public ResponseEntity<String> hello(@RequestBody User user) {
-        return ResponseEntity.ok(helloService.hello(user));
+    public ResponseEntity<String> hello(@RequestBody UserDto userDto) {
+        return ResponseEntity.ok(helloService.hello(userDto));
     }
 
 }

@@ -1,21 +1,16 @@
-server:
-    servlet:
-        context-path: /api
 spring:
+    # autoconfigure:
+    #     exclude:
+    #         - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+    #         - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+    #         - org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
     datasource:
         driver-class-name: org.postgresql.Driver
-        hikari:
-            connection-timeout: 30000
-            minimum-idle: 10
-            maximum-pool-size: 10
-            idle-timeout: 600000
-            max-lifetime: 1800000
-            auto-commit: true
-        jdbc-url: jdbc:postgresql://localhost/postgres
+        url: jdbc:postgresql://localhost/native_image_demo_db
         username: postgres
         password: postgres
     jpa:
         properties:
             hibernate:
-                dialect: org.hibernate.dialect.PostgreSQLDialect
-                ddl-auto: update
+                database-platform: org.hibernate.dialect.PostgreSQLDialect
+                ddl-auto: create

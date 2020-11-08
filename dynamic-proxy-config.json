@@ -1,0 +1,6 @@
+[
+    [
+        "org.springframework.beans.factory.annotation.Qualifier", 
+        "org.springframework.core.annotation.SynthesizedAnnotation"
+    ]
+]
